@@ -24,4 +24,11 @@ sudo pip3 install scikit-image
 echo "Installing Open Computer-Vision..."
 sudo pip3 install opencv-python
 
+echo "Installing Geometry Engine Open Source..."
+sudo apt-get install libgeos-3.6.2
+sudo apt-get install libgeos-dev
+
+echo "Installing Basemap..."
+sudo pip3 install --user git+https://github.com/matplotlib/basemap.git
+
 echo "Done!"
