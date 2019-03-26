@@ -28,6 +28,9 @@ echo "Installing Geometry Engine Open Source..."
 sudo apt-get install libgeos-3.6.2
 sudo apt-get install libgeos-dev
 
+echo "Installing Python Project..."
+pip3 install pyproj==1.9.6
+
 echo "Installing Basemap..."
 sudo pip3 install --user git+https://github.com/matplotlib/basemap.git
 
