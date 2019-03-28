@@ -28,14 +28,14 @@ print(ih, iw, ic)
 
 for i in range(ih):
     for j in range(iw):
-        if img[i, j][3] != 0:
+        if img[i, j][0] == 255:
+            img[i, j] = [255, 255, 255, 0]
+        else:
             img[i, j] = [0, 0, 0, 255]
-#        else:
-#            img[i, j] = [255, 255, 255, 255]
 
 p_pt.imshow(img)
 p_pt.show()
 
-ret = p_cv.imwrite('india.png', img)
+ret = p_cv.imwrite('india.jpg', img)
 
 # print("Done!")
