@@ -20,3 +20,11 @@ states in India. We will try to display the crops grown in different states in I
 varieties of crops grown in the time duration between 2003 and 2014.
 
 ---
+## Working Data
+**Dataset:**
+The dataset used is provided from [Official Indian Government Database] (https://data.gov.in).
+
+The dataset contains all the different varieties of crops grown and the output of those crops in
+different states.
+
+The dataset contains the output in metric tonnes and other units. Each year’s output is provided.
