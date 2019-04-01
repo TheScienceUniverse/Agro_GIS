@@ -28,3 +28,8 @@ The dataset contains all the different varieties of crops grown and the output o
 different states.
 
 The dataset contains the output in metric tonnes and other units. Each year’s output is provided.
+
+---
+# Got Help From
+**Data Filtering:**
+[Easy to Process Queries](https://data.world/the01guy/agrogis/)
