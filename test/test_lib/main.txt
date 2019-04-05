@@ -1,0 +1,77 @@
+import sys as p_ss
+import numpy as p_np
+import cv2 as p_cv
+from matplotlib import pyplot as p_pt
+import csv
+
+import Agro_GIS.lib.mylib as p_ml
+
+
+img = p_cv.imread('Agro_GIS/img/india.png', -1)
+ih, iw, ic = img.shape
+print(ih, iw, ic)
+
+C = p_ml.read_csv('Agro_GIS/data/data_state/Rice.csv')
+
+maxP = 0
+minP = 0
+Y = []
+
+for i in range(36):
+	p = C[i][1:]
+	p = [float(j) for j in p]
+
+	m = 0
+	for j in range(19):
+		m += p[j]
+	m /= 19
+	if m > maxP:
+		maxP = m
+	Y.append(m)
+
+"""
+for i in range(36):
+	p = C[i][1:]
+	p = [float(j) for j in p]
+
+	sX = 0
+	sY = 0
+	sXY = 0
+	ssX = 0
+	for j in range(19):
+		sX += 1997 + j
+		ssX += (1997 + j) * (1997 + j)
+		sY += p[j]
+		sXY += p[j] * (1997 + j)
+
+	mX = (1997 + 2015) / 2
+	mY = sY / 19
+	bYX = (sXY - (sX * sY) / 19) / (ssX - (sX * sX) / 19)
+	a = mY - bYX * mX
+	y = round(a + bYX * 2019, 2)
+	if y > maxP:
+		maxP = y
+	if y < minP:
+		minP = y
+	Y.append(y)
+	#print(y)
+print(minP, maxP)
+"""
+
+r = maxP / 3
+D = p_ml.read_csv('Agro_GIS/data/india.csv')
+for i in range(36):
+	if Y[i] >= 0:
+		if Y[i] >= 0 and Y[i] < r:
+			c = [127, 127, 255]
+		elif Y[i] >= r and Y[i] < 2 * r:
+			c = [255, 127, 127]
+		else:
+			c = [127, 255, 127]
+		p = str2arr(D[i + 1][11])
+		img = p_ml.flood_fill(img, [p[0] - 1, p[1] - 1], c)
+
+ret = p_cv.imwrite('./Agro_GIS/img/output.png', img)
+
+from IPython.display import Image
+Image('./Agro_GIS/img/output.png', width=512, height=512)
