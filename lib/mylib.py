@@ -1,3 +1,5 @@
+import csv
+
 def read_csv(f_nm):
 	data = []
 	with open(f_nm, 'r') as csv_f:
